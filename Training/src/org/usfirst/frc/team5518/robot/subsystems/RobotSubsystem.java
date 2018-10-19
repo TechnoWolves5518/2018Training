@@ -12,13 +12,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class RobotSubsystem extends Subsystem {
 
     VictorSP intakeMotor = new VictorSP(RobotMap.INTAKE_MTR);
+    
+    public RobotSubsystem() {
+    	intakeMotor.setInverted(true);
+    }
 
     public void initDefaultCommand() {
         setDefaultCommand(new RobotCommand());
     }
     
-    public void intake() {
-    		intakeMotor.setSpeed(1);
+    public void intake(double speed) {
+    	intakeMotor.setSpeed(speed);
     }
     
 }

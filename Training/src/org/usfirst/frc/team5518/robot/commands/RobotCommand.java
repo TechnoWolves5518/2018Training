@@ -12,9 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RobotCommand extends Command {
 
 	boolean isIntakePressed;
+	boolean isOuttakePressed;
 	
     public RobotCommand() {
-//        requires(chassis);
+        requires(Robot.sub);
     }
 
     // Called just before this Command runs the first time
@@ -23,12 +24,19 @@ public class RobotCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		isIntakePressed = OI.driverController.getRawButton(RobotMap.XBOX_ABTN);
-    		
-    		if (isIntakePressed == true) {
-    			Robot.sub.intake();
-    		}
-    		
+    	isIntakePressed = OI.driverController.getRawButton(RobotMap.XBOX_ABTN);
+    	isOuttakePressed = OI.driverController.getRawButton(RobotMap.XBOX_BBTN);
+
+    	if (isIntakePressed == true) {
+    		Robot.sub.intake(1);
+    	}
+    	else if (isOuttakePressed == true) {
+    		Robot.sub.intake(-1);
+    	}
+    	else {
+    		Robot.sub.intake(0);
+    	}
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
