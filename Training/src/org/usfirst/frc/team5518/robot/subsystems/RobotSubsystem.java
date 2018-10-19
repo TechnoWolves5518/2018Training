@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class RobotSubsystem extends Subsystem {
 
-    VictorSP intakeMotor = new VictorSP(RobotMap.INTAKE_MTR);
+    VictorSP intakeMotor = new VictorSP(RobotMap.INTAKE_MTR); // motor controller
     
     public RobotSubsystem() {
     	intakeMotor.setInverted(true);
