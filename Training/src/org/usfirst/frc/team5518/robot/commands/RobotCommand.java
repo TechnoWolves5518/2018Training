@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class RobotCommand extends Command {
 	
-	// Axis Front/Back/Left/Right
+	// driveSpeed - forward/backwards movement
+	// turnSpeed - clockwise/anti-clockwise movement
 	double driveSpeed, turnSpeed;
 	
 	boolean isIntakePressed, isOuttakePressed;
@@ -22,26 +23,24 @@ public class RobotCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    		
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 	    	
-    		isIntakePressed = OI.driverController.getRawButton(RobotMap.XBOX_ABTN);
-	    	isOuttakePressed = OI.driverController.getRawButton(RobotMap.XBOX_BBTN);
-	    	
 	    	driveSpeed = OI.driverController.getRawAxis(RobotMap.XBOX_LSTICK);
 	    	turnSpeed = OI.driverController.getRawAxis(RobotMap.XBOX_RSTICK);
 	    	
-	    	if (isIntakePressed == true) {
+	    	isIntakePressed = OI.driverController.getRawButton(RobotMap.XBOX_ABTN);
+	    	isOuttakePressed = OI.driverController.getRawButton(RobotMap.XBOX_BBTN);
+	    	
+	    	if (isIntakePressed == true)
 	    		Robot.sub.intake(1);
-	    	}
-	    	else if (isOuttakePressed == true) {
+	    	else if (isOuttakePressed == true)
 	    		Robot.sub.intake(-1);
-	    	}
-	    	else {
+	    	else
 	    		Robot.sub.intake(0);
-	    	}
 	    	
 	    	Robot.sub.drive(driveSpeed, turnSpeed);
     }
