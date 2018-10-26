@@ -15,6 +15,8 @@ public class RobotCommand extends Command {
 	// turnSpeed - clockwise/anti-clockwise movement
 	double driveSpeed, turnSpeed;
 	
+	double shootSpeed;
+	
 	boolean isIntakePressed, isOuttakePressed;
 	
     public RobotCommand() {
@@ -32,6 +34,8 @@ public class RobotCommand extends Command {
 	    	driveSpeed = OI.driverController.getRawAxis(RobotMap.XBOX_LSTICK);
 	    	turnSpeed = OI.driverController.getRawAxis(RobotMap.XBOX_RSTICK);
 	    	
+	    	shootSpeed = OI.driverController.getRawAxis(RobotMap.XBOX_RTRIGGER);
+	    	
 	    	isIntakePressed = OI.driverController.getRawButton(RobotMap.XBOX_ABTN);
 	    	isOuttakePressed = OI.driverController.getRawButton(RobotMap.XBOX_BBTN);
 	    	
@@ -43,6 +47,7 @@ public class RobotCommand extends Command {
 	    		Robot.sub.intake(0);
 	    	
 	    	Robot.sub.drive(driveSpeed, turnSpeed);
+	    	Robot.sub.shoot(shootSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
