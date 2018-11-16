@@ -15,6 +15,10 @@ package org.usfirst.frc.team5518.robot;
  */
 public class RobotMap {
 	
+	public static double MAX_SPEED = 1.7; // m/s
+	public static double MAX_ACCEL = 2.0; // m/s/s
+	public static double MAX_JERK = 60.0; // m/s/s
+	
 	// Drive Train Ports
 	public static int LEFT_REAR_MOTOR = 0;
 	public static int RIGHT_REAR_MOTOR = 1;

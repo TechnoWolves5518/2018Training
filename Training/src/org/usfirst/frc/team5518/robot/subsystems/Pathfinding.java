@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5518.robot.subsystems;
 
 import org.usfirst.frc.team5518.robot.Robot;
+import org.usfirst.frc.team5518.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import jaci.pathfinder.Pathfinder;
@@ -40,7 +41,8 @@ public class Pathfinding extends Subsystem {
 	    	// Max Velocity:        1.7 m/s
 	    	// Max Acceleration:    2.0 m/s/s
 	    	// Max Jerk:            60.0 m/s/s/s
-	    config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, 0.02, 1.7, 2.0, 60.0);
+	    config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH,
+	    									0.02, RobotMap.MAX_SPEED, RobotMap.MAX_ACCEL, RobotMap.MAX_JERK);
 	    	
 	    	// Generate the trajectory
 	    	trajectory = Pathfinder.generate(points, config);
@@ -64,6 +66,8 @@ public class Pathfinding extends Subsystem {
 	    	// Wheel Diameter is the diameter of your wheels (or pulley for a track system) in meters
 	    	leftFollower.configureEncoder(Robot.sub.getLeftEncoderPos(), 360, Robot.sub.getWheelCircumference());
 	    	rightFollower.configureEncoder(Robot.sub.getRightEncoderPos(), 360, Robot.sub.getWheelCircumference());
+	    	
+	    	leftFollower.configurePIDVA(1.0, 0.0, 0.0, 1 / RobotMap.MAX_SPEED, 0);
     }
     
     public void initDefaultCommand() {
