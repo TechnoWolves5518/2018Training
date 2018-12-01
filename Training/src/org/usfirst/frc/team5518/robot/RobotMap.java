@@ -29,7 +29,13 @@ public class RobotMap {
 	public static int BTM_SHOOT_MTR = 8;
 	public static int TOP_SHOOT_MTR = 4;
 	public static int INTAKE_MTR = 7;
-
+	
+	// Sensor Ports
+	public static int LEFT_ENC_A = 0;
+	public static int LEFT_ENC_B = 1;
+	public static int RIGHT_ENC_A = 2;
+	public static int RIGHT_ENC_B = 3;
+	
 	// Wingman Axes
 	// axes
 	public static int JOYSTICK_XAXIS = 0;
