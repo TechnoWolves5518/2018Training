@@ -15,6 +15,11 @@ package org.usfirst.frc.team5518.robot;
  */
 public class RobotMap {
 	
+	// Motion Profiling Constants
+	public static double MAX_SPEED = 1.7; // m/s
+	public static double MAX_ACCEL = 2.0; // m/s/s
+	public static double MAX_JERK = 60.0; // m/s/s
+
 	// Drive Train Ports
 	public static int LEFT_REAR_MOTOR = 0;
 	public static int RIGHT_REAR_MOTOR = 1;
@@ -25,6 +30,12 @@ public class RobotMap {
 	public static int BTM_SHOOT_MTR = 8;
 	public static int TOP_SHOOT_MTR = 4;
 	public static int INTAKE_MTR = 7;
+
+	// Sensor Ports
+	public static int LEFT_ENC_A = 0;
+	public static int LEFT_ENC_B = 1;
+	public static int RIGHT_ENC_A = 2;
+	public static int RIGHT_ENC_B = 3;
 
 	// Wingman Axes
 	// axes
