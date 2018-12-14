@@ -32,10 +32,10 @@ public class RobotMap {
 	public static int INTAKE_MTR = 7;
 
 	// Sensor Ports
-	public static int LEFT_ENC_A = 0;
-	public static int LEFT_ENC_B = 1;
-	public static int RIGHT_ENC_A = 2;
-	public static int RIGHT_ENC_B = 3;
+	public static int LEFT_ENC_A = 3;
+	public static int LEFT_ENC_B = 4;
+	public static int RIGHT_ENC_A = 5;
+	public static int RIGHT_ENC_B = 6;
 
 	// Wingman Axes
 	// axes
